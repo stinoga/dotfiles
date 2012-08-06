@@ -1,0 +1,61 @@
+[core]
+	editor = Subl
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+[diff]
+	external = /Users/stinogler/Dropbox/Scripts/git-diff-cmd.sh
+[alias]
+	# View the SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph
+	# View the current working tree status using the short format
+	s = status
+	# Diff
+	d = diff --patch-with-stat
+	# Pull in remote changes for the current repository and all its submodules
+	p = !"git pull; git submodule foreach git pull origin master"
+	# Clone a repository including all submodules
+	c = clone --recursive
+	# Commit all changes
+	ca = !git add -A && git commit -avm
+	# Switch to a branch, creating it if necessary
+	go = checkout -B
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	# Credit an author on the latest commit
+	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+	# Undo a `git push`
+	undopush = push -f origin HEAD^:master
+
+# URL shorthands
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"

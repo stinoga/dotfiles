@@ -1,0 +1,37 @@
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: allow text selection in Quick Look
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool false
+
+# Enable the 2D Dock
+defaults write com.apple.dock no-glass -bool true
+
+###############################################################################
+# Dock & hot corners                                                          #
+###############################################################################
+
+# Hot corners
+# Bottom left screen corner → Start screen saver
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
