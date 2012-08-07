@@ -8,7 +8,10 @@
 curl -L https://get.rvm.io | bash -s stable --rails
 
 # Install tools
-brew install ack git legit lynx phantomjs subversion hg
+brew install ack git legit lynx phantomjs hg
+
+# configure git to store your password
+git config --global credential.helper osxkeychain
 
 # Install languages
 brew install android-sdk node
