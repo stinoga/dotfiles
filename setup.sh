@@ -4,6 +4,9 @@
 # Install Homebrew
 /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
+# Install RVM, ruby, and rails
+curl -L https://get.rvm.io | bash -s stable --rails
+
 # Install tools
 brew install ack git legit lynx phantomjs subversion hg
 
