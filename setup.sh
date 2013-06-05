@@ -22,6 +22,9 @@ brew install couchdb mongodb redis
 # Install NPM
 curl http://npmjs.org/install.sh | sh
 
+# Install NPM packages
+npm install -g imageoptim-cli grunt-cli bower
+
 # Create a profile file if you do not have one
 cd ~
 subl .profile
