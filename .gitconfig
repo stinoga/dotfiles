@@ -1,9 +1,9 @@
 [core]
-	editor = Subl
+	editor = subl -n -w
+	excludesfile = ~/.gitignore
+
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+	ui = auto
 
 [color "branch"]
 	current = yellow reverse
@@ -20,8 +20,18 @@
 	added = green
 	changed = yellow
 	untracked = cyan
+
+[credential]
+	helper = osxkeychain
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+	tool = opendiff
+
 [diff]
-	external = /Users/stinogler/Dropbox/Scripts/git-diff-cmd.sh
+	tool = opendiff
+
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
@@ -45,6 +55,12 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
+	# push master branch to remote origin (common on github)
+	gp = push origin master
+	# Get a list of files from the last commit(s)
+	last-commit = diff --name-only HEAD~1 HEAD
+	# Push to both origin and heroku repos
+	gpa = !git push && git push heroku master
 
 # URL shorthands
 [url "git@github.com:"]
@@ -59,3 +75,5 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+[push]
+	default = simple
