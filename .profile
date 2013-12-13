@@ -8,12 +8,12 @@ source $HOME/Dropbox/dotFiles/.prompt
 # Custom OSX settings
 source $HOME/Dropbox/dotFiles/.osx
 
+# Custom aliases
+source $HOME/Dropbox/dotFiles/.aliases
+
 # Set the default editor
 export EDITOR="subl"
 alias e="subl"
-
-# Create alias to update everything!
-alias upsys="sudo softwareupdate -ia; brew update; brew upgrade; npm update -g; gem update"
 
 # my path var and node path
 export PATH=/usr/local/bin:$PATH
