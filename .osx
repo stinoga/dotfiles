@@ -41,3 +41,6 @@ defaults write com.apple.dock no-glass -bool true
 # Bottom left screen corner → Start screen saver
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Disable mission control and spaces, and rejoice
+defaults write com.apple.dock mcx-expose-disabled -bool TRUE
