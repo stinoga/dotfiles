@@ -41,16 +41,16 @@
 	d = diff --patch-with-stat
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
-	# Clone a repository including all submodules
-	c = clone --recursive
-	# Commit all changes
+	# Commit all changes and add message inline
 	ca = !git add -A && git commit -avm
+	# Commit changes, add any necessary files, and add message in editor
+	c = commit -a
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
-	remotes = remote -v
+	rv = remote -v
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Undo a `git push`
@@ -61,6 +61,14 @@
 	last-commit = diff --name-only HEAD~1 HEAD
 	# Push to both origin and heroku repos
 	gpa = !git push && git push heroku master
+	# Grab the commits in the las X days and pretty print the files
+	time = "!f() { git log --pretty=format: --name-only --since=\"$1 days ago\"; }; f"
+	# Reset the current edited files back to the last commit
+	rh = reset --hard
+	# Pull everything
+	pa = pull --all
+	# Push everything to a shared repo
+	psa = push shared --all
 
 # URL shorthands
 [url "git@github.com:"]
